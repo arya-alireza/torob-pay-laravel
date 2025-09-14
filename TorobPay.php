@@ -16,11 +16,11 @@ class TorobPay
 
     public function __construct()
     {
-        $this->baseUrl = 'https://cpg.torobpay.com';
-        $this->clientId = 'torobpay.client_id';
-        $this->clientSecret = 'torobpay.client_secret';
-        $this->username = 'torobpay.username';
-        $this->password = 'torobpay.password';
+        $this->baseUrl = config('torobpay.base_url', 'https://cpg.torobpay.com');
+        $this->clientId = config('torobpay.client_id');
+        $this->clientSecret = config('torobpay.client_secret');
+        $this->username = config('torobpay.username');
+        $this->password = config('torobpay.password');
 
         if (empty($this->clientId) || empty($this->clientSecret) || empty($this->username) || empty($this->password)) {
             throw new Exception('TorobPay credentials are not configured properly in your .env file.');
